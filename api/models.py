@@ -31,7 +31,6 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"{self.book.title} -> {self.stars}"
-    
     class Meta:
         unique_together = (('user', 'book'))
         index_together = (('user', 'book'))
