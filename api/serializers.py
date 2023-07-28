@@ -8,6 +8,7 @@ class BookSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'ISBN', 'author', 'date', 'number_of_ratings', 'avg_rating')
 
 class RatingSerializer(serializers.ModelSerializer):
+    book = BookSerializer(read_only=True)
     class Meta:
         model = Rating
         fields = ('id', 'book', 'user', 'stars', )
